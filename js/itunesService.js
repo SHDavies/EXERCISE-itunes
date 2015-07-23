@@ -11,10 +11,10 @@ app.service('itunesService', function($http, $q){
 
     //Code here
 
-  this.getArtistInfo = function(artist) {
+  this.getArtistInfo = function(artist, filter) {
   	return $http({
   		method: 'JSONP',
-  		url: 'https://itunes.apple.com/search?term=' + artist + '&callback=JSON_CALLBACK'
+  		url: 'https://itunes.apple.com/search?term=' + artist + '&media=' + filter + '&callback=JSON_CALLBACK'
   	}).then(function(response) {
   		return response.data.results;
   	})
